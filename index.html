@@ -786,35 +786,48 @@
 
     <div class="reveal">
       <div class="form-title">Richiedi una Consulenza</div>
-      <div class="form-group">
-        <label>Nome e Cognome</label>
-        <input type="text" placeholder="Mario Rossi">
+
+      <div id="form-success" style="display:none;padding:2rem;border:1px solid var(--gold);text-align:center;">
+        <div style="font-size:1.5rem;color:var(--gold);margin-bottom:0.8rem;">✓</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--navy);margin-bottom:0.5rem;">Messaggio inviato</div>
+        <div style="font-size:0.85rem;color:var(--slate);">Le risponderò al più presto.</div>
       </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="mario@esempio.it">
+
+      <div id="form-error" style="display:none;padding:1rem;border:1px solid #c0392b;margin-bottom:1rem;">
+        <div style="font-size:0.85rem;color:#c0392b;">Si è verificato un errore. La preghiamo di riprovare o di contattarci direttamente per email.</div>
       </div>
-      <div class="form-group">
-        <label>Telefono</label>
-        <input type="tel" placeholder="+39 ...">
+
+      <div id="contact-form">
+        <div class="form-group">
+          <label for="nome">Nome e Cognome</label>
+          <input id="nome" name="nome" type="text" placeholder="Mario Rossi" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="mario@esempio.it" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Telefono</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="+39 ...">
+        </div>
+        <div class="form-group">
+          <label for="area">Area di Interesse</label>
+          <select id="area" name="area">
+            <option value="">Seleziona...</option>
+            <option>Diritto Civile – Recupero Crediti</option>
+            <option>Diritto Civile – Sovraindebitamento</option>
+            <option>Diritto Civile – Bancario/Societario</option>
+            <option>Diritto Penale</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="messaggio">Messaggio</label>
+          <textarea id="messaggio" name="messaggio" placeholder="Descrivi brevemente la sua situazione..."></textarea>
+        </div>
+        <p class="privacy-note">I dati inseriti saranno trattati nel rispetto del Regolamento UE 2016/679 (GDPR) e utilizzati esclusivamente per rispondere alla richiesta.</p>
+        <button class="btn-submit" id="submit-btn" onclick="inviaForm(event)">Invia Richiesta</button>
       </div>
-      <div class="form-group">
-        <label>Area di Interesse</label>
-        <select>
-          <option value="">Seleziona...</option>
-          <option>Diritto Civile – Recupero Crediti</option>
-          <option>Diritto Civile – Sovraindebitamento</option>
-          <option>Diritto Civile – Bancario/Societario</option>
-          <option>Diritto Penale</option>
-          <option>Altro</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Messaggio</label>
-        <textarea placeholder="Descrivi brevemente la tua situazione..."></textarea>
-      </div>
-      <p class="privacy-note">I dati inseriti saranno trattati nel rispetto del Regolamento UE 2016/679 (GDPR) e utilizzati esclusivamente per rispondere alla richiesta.</p>
-      <button class="btn-submit">Invia Richiesta</button>
     </div>
 
   </div>
@@ -847,6 +860,52 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Formspree contact form
+  async function inviaForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const errDiv = document.getElementById('form-error');
+    const successDiv = document.getElementById('form-success');
+    errDiv.style.display = 'none';
+
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!nome || !email) {
+      errDiv.querySelector('div').textContent = 'Nome e Email sono obbligatori.';
+      errDiv.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = 'Invio in corso...';
+    btn.disabled = true;
+
+    const data = {
+      nome,
+      email,
+      telefono: document.getElementById('telefono').value,
+      area: document.getElementById('area').value,
+      messaggio: document.getElementById('messaggio').value
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/mnjwlovy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        document.getElementById('contact-form').style.display = 'none';
+        successDiv.style.display = 'block';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      errDiv.style.display = 'block';
+      btn.textContent = 'Invia Richiesta';
+      btn.disabled = false;
+    }
+  }
 
   // Smooth active nav
   const sections = document.querySelectorAll('section[id]');
