@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avv. Gianluca Puglisi – Studio Legale | Belluno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2235;
+    --navy-mid: #243050;
+    --slate: #4a5568;
+    --silver: #8a97ad;
+    --gold: #b8955a;
+    --gold-light: #d4b07a;
+    --cream: #f7f4ef;
+    --white: #ffffff;
+    --line: rgba(184,149,90,0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(26,34,53,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.25em;
+    color: var(--silver);
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--silver);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-lines {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(184,149,90,0.04) 80px,
+        rgba(184,149,90,0.04) 81px
+      );
+  }
+
+  .hero-accent {
+    position: absolute;
+    right: -100px; top: 50%;
+    transform: translateY(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,149,90,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 2;
+    padding: 0 4rem;
+    max-width: 900px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--silver);
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(138,151,173,0.4);
+    color: var(--silver);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 0 4rem;
+  }
+  .divider-line { flex: 1; height: 1px; background: var(--line); }
+  .divider-icon {
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 24px; height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── AREE DI PRATICA ── */
+  #aree { background: var(--white); }
+
+  .aree-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+    margin-top: 4rem;
+    border: 1px solid var(--line);
+  }
+
+  .area-card {
+    padding: 3rem;
+    border-right: 1px solid var(--line);
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .area-card:last-child { border-right: none; }
+  .area-card:hover { background: var(--cream); }
+
+  .area-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(184,149,90,0.15);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s;
+  }
+  .area-card:hover .area-number { color: rgba(184,149,90,0.3); }
+
+  .area-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 1.2rem;
+  }
+
+  .area-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--line);
+    padding: 0.3rem 0.7rem;
+  }
+
+  .area-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--slate);
+  }
+
+  /* ── CHI SONO ── */
+  #chi-sono {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chi-bg {
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+    border-left: 1px solid var(--line);
+  }
+  .chi-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 30px,
+        rgba(184,149,90,0.03) 30px,
+        rgba(184,149,90,0.03) 31px
+      );
+  }
+
+  .chi-inner {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .chi-left .section-title { color: var(--white); }
+
+  .chi-text {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--silver);
+    margin-bottom: 2rem;
+  }
+
+  .chi-highlight {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--gold-light);
+    line-height: 1.5;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .chi-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 3rem;
+  }
+
+  .stat {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--silver);
+  }
+
+  /* ── APPROCCIO ── */
+  #approccio { background: var(--cream); }
+
+  .approccio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    background: var(--line);
+  }
+
+  .approccio-item {
+    background: var(--cream);
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+
+  .app-icon {
+    width: 48px; height: 48px;
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  .app-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+  }
+
+  .app-text {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--slate);
+  }
+
+  /* ── CONTATTI ── */
+  #contatti { background: var(--white); }
+
+  .contatti-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .contact-item {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  .contact-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--silver);
+    margin-bottom: 0.4rem;
+  }
+  .contact-value {
+    font-size: 0.95rem;
+    color: var(--navy);
+    line-height: 1.6;
+    text-decoration: none;
+  }
+  a.contact-value:hover { color: var(--gold); }
+
+  /* Form */
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(74,85,104,0.25);
+    background: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    color: var(--navy);
+    outline: none;
+    transition: border-color 0.3s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--gold);
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .privacy-note {
+    font-size: 0.75rem;
+    color: var(--silver);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .btn-submit:hover { background: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--silver);
+    letter-spacing: 0.1em;
+  }
+  .footer-brand span { color: var(--gold); }
+
+  .footer-info {
+    font-size: 0.75rem;
+    color: rgba(138,151,173,0.6);
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex; gap: 2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .footer-links a {
+    color: var(--silver);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero-inner { padding: 0 1.5rem; }
+    .chi-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .chi-bg { display: none; }
+    .approccio-grid { grid-template-columns: 1fr; }
+    .contatti-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    .divider { padding: 0 1.5rem; }
+    .chi-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>G.</span> Puglisi — Studio Legale</div>
+  <ul class="nav-links">
+    <li><a href="#aree">Aree di Pratica</a></li>
+    <li><a href="#chi-sono">Chi Sono</a></li>
+    <li><a href="#approccio">Approccio</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+  <a href="#contatti" class="nav-cta">Consulenza</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Studio Legale · Belluno</div>
+    <h1 class="hero-title">
+      Soluzioni legali<br>
+      <em>concrete ed efficaci</em>
+    </h1>
+    <p class="hero-sub">
+      Diritto civile e penale per privati, aziende e istituzioni. Un approccio strategico e orientato al risultato, con esperienza maturata nei principali studi del Triveneto.
+    </p>
+    <div class="hero-actions">
+      <a href="#contatti" class="btn-primary">Richiedi una consulenza</a>
+      <a href="#aree" class="btn-ghost">Aree di pratica</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider" style="background:var(--white);padding-top:0;padding-bottom:0;">
+  <div class="divider-line"></div>
+  <div class="divider-icon">⚖</div>
+  <div class="divider-line"></div>
+</div>
+
+<!-- AREE DI PRATICA -->
+<section id="aree">
+  <div class="section-label reveal">Competenze</div>
+  <h2 class="section-title reveal">Aree di Pratica</h2>
+  <div class="aree-grid reveal">
+
+    <div class="area-card">
+      <div class="area-number">01</div>
+      <h3 class="area-title">Diritto Civile</h3>
+      <div class="area-tags">
+        <span class="tag">Recupero Crediti</span>
+        <span class="tag">Esecuzione Forzata</span>
+        <span class="tag">Diritto Bancario</span>
+        <span class="tag">Diritto Societario</span>
+        <span class="tag">Diritto Fallimentare</span>
+      </div>
+      <p class="area-text">
+        Soluzioni concrete per la risoluzione di controversie civili e la tutela degli interessi patrimoniali. Mi occupo inoltre di composizione della crisi da sovraindebitamento, assistendo persone fisiche e piccole imprese nel superamento di situazioni finanziarie difficili con un approccio strategico orientato al risanamento.
+      </p>
+    </div>
+
+    <div class="area-card">
+      <div class="area-number">02</div>
+      <h3 class="area-title">Diritto Penale</h3>
+      <div class="area-tags">
+        <span class="tag">Reati contro la Persona</span>
+        <span class="tag">Reati contro il Patrimonio</span>
+        <span class="tag">Difesa Penale</span>
+        <span class="tag">Parte Lesa</span>
+      </div>
+      <p class="area-text">
+        Difesa dei diritti di chi è coinvolto in procedimenti penali, sia come parte lesa che come imputato. Mi occupo principalmente di reati contro la persona e reati contro il patrimonio, garantendo una rappresentanza rigorosa e una strategia difensiva mirata.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CHI SONO -->
+<section id="chi-sono">
+  <div class="chi-bg"><div class="chi-bg-pattern"></div></div>
+  <div class="chi-inner">
+    <div class="chi-left">
+      <div class="section-label reveal" style="color:var(--gold)">Il Professionista</div>
+      <h2 class="section-title reveal">Avv. Gianluca Puglisi</h2>
+
+      <p class="chi-text reveal">
+        Grazie a una consolidata esperienza in diritto civile e penale, maturata attraverso una decennale collaborazione presso prestigiosi studi legali del Triveneto, l'Avv. Gianluca Puglisi offre soluzioni rapide ed efficaci per le questioni legali più complesse.
+      </p>
+
+      <div class="chi-highlight reveal">
+        "Consulenza personalizzata e soluzioni legali ad hoc per privati, aziende e istituzioni, sempre orientate al risultato."
+      </div>
+
+      <p class="chi-text reveal">
+        La sua esperienza consente di assistere i clienti con un approccio strategico, mirato a tutelare i diritti e ottimizzare le risorse, grazie a una solida conoscenza delle dinamiche legali e delle opportunità offerte dal sistema giuridico.
+      </p>
+
+      <div class="chi-stats reveal">
+        <div class="stat">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Anni di Esperienza</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Aree di Specializzazione</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">360°</div>
+          <div class="stat-label">Assistenza Legale</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">BL</div>
+          <div class="stat-label">Provincia di Belluno</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chi-right reveal">
+      <!-- Placeholder visivo decorativo -->
+      <div style="border:1px solid var(--line);padding:3rem;text-align:center;">
+        <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg" style="width:100px;height:90px;opacity:0.35;margin:0 auto;display:block;">
+          <!-- Central pole -->
+          <line x1="60" y1="10" x2="60" y2="90" stroke="#b8955a" stroke-width="2.5"/>
+          <!-- Base -->
+          <rect x="42" y="88" width="36" height="5" rx="1" fill="#b8955a"/>
+          <!-- Beam - tilted left side down -->
+          <line x1="18" y1="32" x2="102" y2="22" stroke="#b8955a" stroke-width="2.5"/>
+          <!-- Left chain (longer, lower) -->
+          <line x1="18" y1="32" x2="18" y2="62" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <!-- Right chain (shorter, higher) -->
+          <line x1="102" y1="22" x2="102" y2="42" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <!-- Left pan (lower) -->
+          <path d="M6 62 Q18 70 30 62" stroke="#b8955a" stroke-width="2" fill="none"/>
+          <!-- Right pan (higher) -->
+          <path d="M90 42 Q102 50 114 42" stroke="#b8955a" stroke-width="2" fill="none"/>
+          <!-- Pivot circle -->
+          <circle cx="60" cy="10" r="3.5" fill="#b8955a"/>
+        </svg>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--silver);font-weight:300;margin-top:1.5rem;letter-spacing:0.08em;">Gianluca Puglisi</div>
+        <div style="font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(138,151,173,0.5);margin-top:0.5rem;">Studio Legale · Belluno</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROCCIO -->
+<section id="approccio">
+  <div class="section-label reveal">Metodo</div>
+  <h2 class="section-title reveal">Il Mio Approccio</h2>
+  <div class="approccio-grid reveal">
+
+    <div class="approccio-item">
+      <div class="app-icon">◎</div>
+      <h3 class="app-title">Strategia Orientata al Risultato</h3>
+      <p class="app-text">Ogni caso viene analizzato con rigore per identificare la strategia più efficace, massimizzando le possibilità di successo e ottimizzando tempi e risorse.</p>
+    </div>
+
+    <div class="approccio-item">
+      <div class="app-icon">◈</div>
+      <h3 class="app-title">Consulenza Personalizzata</h3>
+      <p class="app-text">Nessun caso è uguale a un altro. Offro soluzioni su misura per privati, aziende e istituzioni, con un'attenzione costante alle specificità di ogni situazione.</p>
+    </div>
+
+    <div class="approccio-item">
+      <div class="app-icon">◇</div>
+      <h3 class="app-title">Accessibilità e Flessibilità</h3>
+      <p class="app-text">Lo studio è disponibile per incontri in presenza a Belluno e per consulenze preliminari da remoto, garantendo massima accessibilità al servizio legale.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti">
+  <div class="section-label reveal">Dove Sono</div>
+  <h2 class="section-title reveal">Contatti</h2>
+  <div class="contatti-inner">
+
+    <div class="reveal">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Indirizzo</div>
+          <div class="contact-value">Via Feltre, 53<br>32100 Belluno (BL)</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Telefono</div>
+          <a href="tel:+393384188050" class="contact-value">+39 338 418 8050</a><br>
+          <a href="tel:+390437943348" class="contact-value">+39 0437 943348</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <a href="mailto:puglisilex@gmail.com" class="contact-value">puglisilex@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Modalità di Ricevimento</div>
+          <div class="contact-value">In presenza · Da remoto (colloqui preliminari)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="form-title">Richiedi una Consulenza</div>
+      <div class="form-group">
+        <label>Nome e Cognome</label>
+        <input type="text" placeholder="Mario Rossi">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="mario@esempio.it">
+      </div>
+      <div class="form-group">
+        <label>Telefono</label>
+        <input type="tel" placeholder="+39 ...">
+      </div>
+      <div class="form-group">
+        <label>Area di Interesse</label>
+        <select>
+          <option value="">Seleziona...</option>
+          <option>Diritto Civile – Recupero Crediti</option>
+          <option>Diritto Civile – Sovraindebitamento</option>
+          <option>Diritto Civile – Bancario/Societario</option>
+          <option>Diritto Penale</option>
+          <option>Altro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Messaggio</label>
+        <textarea placeholder="Descrivi brevemente la tua situazione..."></textarea>
+      </div>
+      <p class="privacy-note">I dati inseriti saranno trattati nel rispetto del Regolamento UE 2016/679 (GDPR) e utilizzati esclusivamente per rispondere alla richiesta.</p>
+      <button class="btn-submit">Invia Richiesta</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><span>Gianluca Puglisi</span> — Studio Legale</div>
+  <div class="footer-info">Via Feltre, 53 · 32100 Belluno (BL) · P.IVA da inserire</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Cookie Policy</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // stagger children
+        e.target.querySelectorAll('.area-card, .approccio-item, .stat').forEach((el, i) => {
+          el.style.transitionDelay = (i * 0.1) + 's';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
