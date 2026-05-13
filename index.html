@@ -3,7 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avv. Gianluca Puglisi – Studio Legale | Belluno</title>
+
+<!-- SEO Base -->
+<title>Avv. Gianluca Puglisi – Studio Legale Belluno | Diritto Civile e Penale</title>
+<meta name="description" content="Studio Legale Avv. Gianluca Puglisi a Belluno. Specializzato in diritto civile (recupero crediti, sovraindebitamento, diritto bancario e societario) e diritto penale. Consulenza in presenza e da remoto. Chiama: 338 418 8050.">
+<meta name="keywords" content="avvocato Belluno, studio legale Belluno, avvocato diritto civile Belluno, recupero crediti Belluno, avvocato penale Belluno, sovraindebitamento Belluno, diritto bancario Belluno, avvocato societario Belluno, Gianluca Puglisi avvocato, studio legale Triveneto">
+<meta name="author" content="Avv. Gianluca Puglisi">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.puglisiavvocato.it/">
+
+<!-- Open Graph (anteprima su WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.puglisiavvocato.it/">
+<meta property="og:title" content="Avv. Gianluca Puglisi – Studio Legale Belluno">
+<meta property="og:description" content="Diritto civile e penale a Belluno. Recupero crediti, sovraindebitamento, diritto bancario e societario, difesa penale. 20+ anni di esperienza nel Triveneto.">
+<meta property="og:locale" content="it_IT">
+
+<!-- Schema.org structured data (Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Studio Legale Avv. Gianluca Puglisi",
+  "description": "Studio legale specializzato in diritto civile e penale a Belluno. Recupero crediti, sovraindebitamento, diritto bancario, societario e fallimentare, difesa penale.",
+  "url": "https://www.puglisiavvocato.it",
+  "telephone": ["+39-338-418-8050", "+39-0437-943348"],
+  "email": "puglisilex@gmail.com",
+  "vatID": "01059570257",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Feltre, 53",
+    "addressLocality": "Belluno",
+    "addressRegion": "BL",
+    "postalCode": "32100",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.1406,
+    "longitude": 12.2159
+  },
+  "areaServed": {
+    "@type": "GeoRegion",
+    "name": "Belluno, Veneto, Triveneto"
+  },
+  "priceRange": "€€",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi Legali",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diritto Civile – Recupero Crediti"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Composizione Crisi da Sovraindebitamento"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diritto Bancario e Societario"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diritto Penale"}}
+    ]
+  },
+  "person": {
+    "@type": "Person",
+    "name": "Gianluca Puglisi",
+    "jobTitle": "Avvocato",
+    "worksFor": {"@type": "LegalService", "name": "Studio Legale Avv. Gianluca Puglisi"}
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -503,13 +566,17 @@
   /* ── FOOTER ── */
   footer {
     background: var(--navy);
-    padding: 3rem 4rem;
+    padding: 1.4rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-top: 1px solid var(--line);
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
+    position: sticky;
+    bottom: 0;
+    z-index: 90;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
   }
 
   .footer-brand {
@@ -517,24 +584,39 @@
     font-size: 1rem;
     color: var(--silver);
     letter-spacing: 0.1em;
+    white-space: nowrap;
   }
   .footer-brand span { color: var(--gold); }
 
-  .footer-info {
-    font-size: 0.75rem;
-    color: rgba(138,151,173,0.6);
+  .footer-contacts {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .footer-contact-item {
+    font-size: 0.72rem;
+    color: rgba(138,151,173,0.8);
     letter-spacing: 0.05em;
-    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+  .footer-contact-item:hover { color: var(--gold); }
+  .footer-contact-sep {
+    width: 1px; height: 14px;
+    background: var(--line);
   }
 
   .footer-links {
-    display: flex; gap: 2rem;
-    font-size: 0.7rem;
+    display: flex; gap: 1.5rem;
+    font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    white-space: nowrap;
   }
   .footer-links a {
-    color: var(--silver);
+    color: rgba(138,151,173,0.5);
     text-decoration: none;
     transition: color 0.3s;
   }
@@ -556,19 +638,69 @@
     transform: none;
   }
 
+  /* ── MOBILE MENU ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px; height: 1.5px;
+    background: var(--silver);
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: rgba(26,34,53,0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    z-index: 99;
+    padding: 1.5rem 2rem;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--silver);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(184,149,90,0.1);
+    transition: color 0.3s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
     section { padding: 4rem 1.5rem; }
     .hero-inner { padding: 0 1.5rem; }
     .chi-inner { grid-template-columns: 1fr; gap: 2rem; }
     .chi-bg { display: none; }
     .approccio-grid { grid-template-columns: 1fr; }
     .contatti-inner { grid-template-columns: 1fr; gap: 3rem; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    footer { padding: 1rem 1.5rem; flex-direction: column; text-align: center; gap: 0.6rem; }
+    .footer-contacts { justify-content: center; gap: 1rem; }
+    .footer-contact-sep { display: none; }
     .divider { padding: 0 1.5rem; }
-    .chi-stats { grid-template-columns: 1fr; }
+    .chi-stats { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -576,22 +708,51 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>G.</span> Puglisi — Studio Legale</div>
+  <div class="nav-logo"><span>Gianluca</span> Puglisi — Studio Legale</div>
   <ul class="nav-links">
+    <li><a href="#chi-sono">Il Professionista</a></li>
     <li><a href="#aree">Aree di Pratica</a></li>
-    <li><a href="#chi-sono">Chi Sono</a></li>
     <li><a href="#approccio">Approccio</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
   <a href="#contatti" class="nav-cta">Consulenza</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#chi-sono" onclick="closeMenu()">Il Professionista</a>
+  <a href="#aree" onclick="closeMenu()">Aree di Pratica</a>
+  <a href="#approccio" onclick="closeMenu()">Approccio</a>
+  <a href="#contatti" onclick="closeMenu()">Contatti</a>
+  <a href="#contatti" onclick="closeMenu()" style="color:var(--gold);margin-top:0.5rem;">→ Richiedi Consulenza</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg-lines"></div>
   <div class="hero-accent"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Studio Legale · Belluno</div>
+    <!-- LOGO integrato nell'hero -->
+    <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:2.5rem;">
+      <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:50px;flex-shrink:0;">
+        <line x1="60" y1="10" x2="60" y2="90" stroke="#b8955a" stroke-width="2.5"/>
+        <rect x="42" y="88" width="36" height="5" rx="1" fill="#b8955a"/>
+        <line x1="18" y1="32" x2="102" y2="22" stroke="#b8955a" stroke-width="2.5"/>
+        <line x1="18" y1="32" x2="18" y2="62" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <line x1="102" y1="22" x2="102" y2="42" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <path d="M6 62 Q18 70 30 62" stroke="#b8955a" stroke-width="2" fill="none"/>
+        <path d="M90 42 Q102 50 114 42" stroke="#b8955a" stroke-width="2" fill="none"/>
+        <circle cx="60" cy="10" r="3.5" fill="#b8955a"/>
+      </svg>
+      <div style="border-left:1px solid rgba(184,149,90,0.4);padding-left:1.2rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;letter-spacing:0.18em;color:var(--white);text-transform:uppercase;">Gianluca Puglisi</div>
+        <div style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--silver);margin-top:0.2rem;">Studio Legale · Belluno</div>
+      </div>
+    </div>
+
     <h1 class="hero-title">
       Soluzioni legali<br>
       <em>concrete ed efficaci</em>
@@ -612,6 +773,57 @@
   <div class="divider-icon">⚖</div>
   <div class="divider-line"></div>
 </div>
+
+<!-- CHI SONO -->
+<section id="chi-sono">
+  <div class="chi-bg"><div class="chi-bg-pattern"></div></div>
+  <div class="chi-inner">
+    <div class="chi-left">
+      <div class="section-label reveal" style="color:var(--gold)">Il Professionista</div>
+      <h2 class="section-title reveal">Avv. Gianluca Puglisi</h2>
+
+      <p class="chi-text reveal">
+        Grazie a una consolidata esperienza in diritto civile e penale, maturata attraverso una decennale collaborazione presso prestigiosi studi legali del Triveneto, l'Avv. Gianluca Puglisi offre soluzioni rapide ed efficaci per le questioni legali più complesse.
+      </p>
+
+      <div class="chi-highlight reveal">
+        "Consulenza personalizzata e soluzioni legali ad hoc per privati, aziende e istituzioni, sempre orientate al risultato."
+      </div>
+
+      <p class="chi-text reveal">
+        La sua esperienza consente di assistere i clienti con un approccio strategico, mirato a tutelare i diritti e ottimizzare le risorse, grazie a una solida conoscenza delle dinamiche legali e delle opportunità offerte dal sistema giuridico.
+      </p>
+
+      <div class="chi-stats reveal">
+        <div class="stat">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Anni di Esperienza</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">360°</div>
+          <div class="stat-label">Assistenza Legale</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chi-right reveal">
+      <div style="border:1px solid var(--line);padding:3rem;text-align:center;">
+        <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg" style="width:100px;height:90px;opacity:0.35;margin:0 auto;display:block;">
+          <line x1="60" y1="10" x2="60" y2="90" stroke="#b8955a" stroke-width="2.5"/>
+          <rect x="42" y="88" width="36" height="5" rx="1" fill="#b8955a"/>
+          <line x1="18" y1="32" x2="102" y2="22" stroke="#b8955a" stroke-width="2.5"/>
+          <line x1="18" y1="32" x2="18" y2="62" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <line x1="102" y1="22" x2="102" y2="42" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <path d="M6 62 Q18 70 30 62" stroke="#b8955a" stroke-width="2" fill="none"/>
+          <path d="M90 42 Q102 50 114 42" stroke="#b8955a" stroke-width="2" fill="none"/>
+          <circle cx="60" cy="10" r="3.5" fill="#b8955a"/>
+        </svg>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--silver);font-weight:300;margin-top:1.5rem;letter-spacing:0.08em;">Gianluca Puglisi</div>
+        <div style="font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(138,151,173,0.5);margin-top:0.5rem;">Studio Legale · Belluno</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- AREE DI PRATICA -->
 <section id="aree">
@@ -648,74 +860,6 @@
       </p>
     </div>
 
-  </div>
-</section>
-
-<!-- CHI SONO -->
-<section id="chi-sono">
-  <div class="chi-bg"><div class="chi-bg-pattern"></div></div>
-  <div class="chi-inner">
-    <div class="chi-left">
-      <div class="section-label reveal" style="color:var(--gold)">Il Professionista</div>
-      <h2 class="section-title reveal">Avv. Gianluca Puglisi</h2>
-
-      <p class="chi-text reveal">
-        Grazie a una consolidata esperienza in diritto civile e penale, maturata attraverso una decennale collaborazione presso prestigiosi studi legali del Triveneto, l'Avv. Gianluca Puglisi offre soluzioni rapide ed efficaci per le questioni legali più complesse.
-      </p>
-
-      <div class="chi-highlight reveal">
-        "Consulenza personalizzata e soluzioni legali ad hoc per privati, aziende e istituzioni, sempre orientate al risultato."
-      </div>
-
-      <p class="chi-text reveal">
-        La sua esperienza consente di assistere i clienti con un approccio strategico, mirato a tutelare i diritti e ottimizzare le risorse, grazie a una solida conoscenza delle dinamiche legali e delle opportunità offerte dal sistema giuridico.
-      </p>
-
-      <div class="chi-stats reveal">
-        <div class="stat">
-          <div class="stat-num">20+</div>
-          <div class="stat-label">Anni di Esperienza</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Aree di Specializzazione</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">360°</div>
-          <div class="stat-label">Assistenza Legale</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">BL</div>
-          <div class="stat-label">Provincia di Belluno</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chi-right reveal">
-      <!-- Placeholder visivo decorativo -->
-      <div style="border:1px solid var(--line);padding:3rem;text-align:center;">
-        <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg" style="width:100px;height:90px;opacity:0.35;margin:0 auto;display:block;">
-          <!-- Central pole -->
-          <line x1="60" y1="10" x2="60" y2="90" stroke="#b8955a" stroke-width="2.5"/>
-          <!-- Base -->
-          <rect x="42" y="88" width="36" height="5" rx="1" fill="#b8955a"/>
-          <!-- Beam - tilted left side down -->
-          <line x1="18" y1="32" x2="102" y2="22" stroke="#b8955a" stroke-width="2.5"/>
-          <!-- Left chain (longer, lower) -->
-          <line x1="18" y1="32" x2="18" y2="62" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <!-- Right chain (shorter, higher) -->
-          <line x1="102" y1="22" x2="102" y2="42" stroke="#b8955a" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <!-- Left pan (lower) -->
-          <path d="M6 62 Q18 70 30 62" stroke="#b8955a" stroke-width="2" fill="none"/>
-          <!-- Right pan (higher) -->
-          <path d="M90 42 Q102 50 114 42" stroke="#b8955a" stroke-width="2" fill="none"/>
-          <!-- Pivot circle -->
-          <circle cx="60" cy="10" r="3.5" fill="#b8955a"/>
-        </svg>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--silver);font-weight:300;margin-top:1.5rem;letter-spacing:0.08em;">Gianluca Puglisi</div>
-        <div style="font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(138,151,173,0.5);margin-top:0.5rem;">Studio Legale · Belluno</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -823,7 +967,7 @@
         </div>
         <div class="form-group">
           <label for="messaggio">Messaggio</label>
-          <textarea id="messaggio" name="messaggio" placeholder="Descrivi brevemente la sua situazione..."></textarea>
+          <textarea id="messaggio" name="messaggio" placeholder="Descrivi brevemente la tua situazione..."></textarea>
         </div>
         <p class="privacy-note">I dati inseriti saranno trattati nel rispetto del Regolamento UE 2016/679 (GDPR) e utilizzati esclusivamente per rispondere alla richiesta.</p>
         <button class="btn-submit" id="submit-btn" onclick="inviaForm(event)">Invia Richiesta</button>
@@ -836,14 +980,34 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand"><span>Gianluca Puglisi</span> — Studio Legale</div>
-  <div class="footer-info">Via Feltre, 53 · 32100 Belluno (BL) · P.IVA da inserire</div>
+  <div class="footer-contacts">
+    <a href="tel:+393384188050" class="footer-contact-item">📞 338 418 8050</a>
+    <div class="footer-contact-sep"></div>
+    <a href="tel:+390437943348" class="footer-contact-item">☎ 0437 943348</a>
+    <div class="footer-contact-sep"></div>
+    <a href="mailto:puglisilex@gmail.com" class="footer-contact-item">✉ puglisilex@gmail.com</a>
+    <div class="footer-contact-sep"></div>
+    <span class="footer-contact-item">P.IVA 01059570257</span>
+  </div>
   <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Cookie Policy</a>
+    <a href="#">Privacy</a>
+    <a href="#">Cookie</a>
   </div>
 </footer>
 
 <script>
+  // Mobile menu
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
